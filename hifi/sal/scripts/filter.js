@@ -1,3 +1,5 @@
+// this should work as a filter function
+// see: https://forums.highfidelity.com/t/how-to-detect-and-remove-huge-or-poison-builds-or-prevent-them-to-be-built/14456/5?u=claudio.pacchiega
 function filter(properties, type, originalProperties, zoneProperties) {    
 
     var nearZero = 0.0001 * Math.random() + 0.001;
