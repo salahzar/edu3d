@@ -1,5 +1,8 @@
+// This works with userData
+// hostname: 'name of the domain defaults to current domain',
+// path: 'path inside the domain'
+// 2018 CC0, written by Salahzar Stenvaag
 (function () {
-
     
     var path = null;
     var properties = null;
