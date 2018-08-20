@@ -15,7 +15,6 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Raleway:300,400,600,700"" rel="stylesheet">
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-		<script type="text/javascript" src="jquery.emoticons.js"></script>
         <style>
             input[type=button],
             button {
@@ -182,11 +181,6 @@
                 display: flex;
                 flex-direction: column;
             }
-			.responsive {
-				width: 100%;
-				max-width: 420px;
-				height: auto;
-			}
 
         </style>
     </head>
@@ -209,125 +203,6 @@
     </body>
 
     <script>
-
-//linky function
-//$('#ChatInputText').twemojiPicker();
-(function($) {
-
-    "use strict";
-
-    $.fn.linky = function(options) {
-        return this.each(function() {
-            var $el = $(this),
-                linkifiedContent = _linkify($el, options);
-
-            $el.html(linkifiedContent);
-        });
-    };
-
-    function _linkify($el, options) {
-        var links = {
-                twitter: {
-                    baseUrl: "https://twitter.com/",
-                    hashtagSearchUrl: "hashtag/"
-                },
-                instagram: {
-                    baseUrl: "http://instagram.com/",
-                    hashtagSearchUrl: null // Doesn't look like there is one?
-                },
-                github: {
-                    baseUrl: "https://github.com/",
-                    hashtagSearchUrl: null
-                }
-            },
-            defaultOptions = {
-                mentions: false,
-                hashtags: false,
-                urls: true,
-                linkTo: "twitter" // Let's default to Twitter
-            },
-            extendedOptions = $.extend(defaultOptions, options),
-            elContent = $el.html(),
-            // Regular expression courtesy of Matthew O'Riordan, see: http://goo.gl/3syEKK
-            urlRegEx = /((([A-Za-z]{3,9}:(?:\/\/)?)(?:[\-;:&=\+\$,\w]+@)?[A-Za-z0-9\.\-]+|(?:www\.|[\-;,:&=\+\$,\w]+@)[A-Za-z0-9\.\-]+)((?:\/[\+,~%\/\.\w\-]*)?\??(?:[\-\+=&;,:%@\.\w]*)#?(?:[\.\!\/\\\w]*))?)/g,
-            matches;
-
-            // Linkifying URLs
-            if (extendedOptions.urls) {
-                matches = elContent.match(urlRegEx);
-                if (matches) {
-                    elContent = _linkifyUrls(matches, $el);
-                }
-            }
-
-            // Linkifying mentions
-            if (extendedOptions.mentions) {
-                elContent = _linkifyMentions(elContent, links[extendedOptions.linkTo].baseUrl);
-            }
-
-            // Linkifying hashtags
-            if (extendedOptions.hashtags) {
-                elContent = _linkifyHashtags(elContent, links[extendedOptions.linkTo]);
-            }
-
-        return elContent;
-    }
-
-    // For any URLs present, unless they are already identified within
-    // an `a` element, linkify them.
-    function _linkifyUrls(matches, $el) {
-        var elContent = $el.html();
-
-        $.each(matches, function() {
-		
-			//var arr = [ "jpeg", "jpg", "gif", "png" ];
-			var ext = this.split('.').pop();
-			
-			switch(true){
-			case ext == "png":
-			case ext == "jpg":
-			case ext == "gif":
-			case ext == "jpeg":
-			case ext == "PNG":
-			case ext == "JPG":
-			case ext == "GIF":
-			case ext == "JPEG":
-				elContent = elContent.replace(this, "<img src='https://transmissiongate.com/hifi/chat/html/&quot;&#32;+&#32;this&#32;+&#32;&quot;'class=\"responsive\">");
-				break;
-			case ext == "webm":
-				elContent = elContent.replace(this, "<video controls class=\"responsive\"><source src='https://transmissiongate.com/hifi/chat/html/&quot;&#32;+&#32;this&#32;+&#32;&quot;' type='video/" + ext + "'></video>");
-				break;
-			case !!this.match(/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/):
-				var youtubeMatch = this.match(/^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|\&v=)([^#\&\?]*).*/);
-				if(youtubeMatch && youtubeMatch[2].length == 11 && this.match(/^(?:https?:\/\/)?(?:www\.)?youtube\.com\/watch\?(?=.*v=((\w|-){11}))(?:\S+)?$/)){
-					elContent = "<iframe width='420' height='236' src='https://www.youtube.com/embed/&quot;&#32;+&#32;youtubeMatch[2]&#32;+&#32;&quot;' frameborder='0'></iframe>";
-					break;
-				}
-				// else fall through to default
-			default:
-					elContent = elContent.replace(this, "<a href='https://transmissiongate.com/hifi/chat/html/&quot;&#32;+&#32;this&#32;+&#32;&quot;' target='_blank'>" + this + "</a>");
-				break;
-			}
-
-        });
-        return elContent;
-    }
-
-    // Find any mentions (e.g. @andrs) and turn them into links that
-    // refer to the appropriate social profile (e.g. twitter or instagram).
-    function _linkifyMentions(text, baseUrl) {
-        return text.replace(/(^|\s|\(|>)@(\w+)/g, "$1<a href='https://transmissiongate.com/hifi/chat/html/&quot;&#32;+&#32;baseUrl&#32;+&#32;&quot;$2' target='_blank'>@$2</a>");
-    }
-
-    // Find any hashtags (e.g. #linkyrocks) and turn them into links that refer
-    // to the appropriate social profile.
-    function _linkifyHashtags(text, links) {
-        // If there is no search URL for a hashtag, there isn't much we can do
-        if (links.hashtagSearchUrl === null) return text;
-        return text.replace(/(^|\s|\(|>)#((\w|[\u00A1-\uFFFF])+)/g, "$1<a href='https://transmissiongate.com/hifi/chat/html/&quot;&#32;+&#32;links.baseUrl&#32;+&#32;links.hashtagSearchUrl&#32;+&#32;&quot;$2' target='_blank'>#$2</a>");
-    }
-
-}(jQuery));
 
         //console.log("ChatPage: loading script...");
 
@@ -430,7 +305,6 @@
                     .data('chat-message', message)
                     .data('chat-data', data)
                     .appendTo($ChatLog);
-		    
             var $logLineDisplayName =
                 $('<span/>')
                     .addClass('ChatLogLineDisplayName')
@@ -459,7 +333,7 @@
             var $logLineMessage =
                 $('<span/>')
                     .addClass('ChatLogLineMessage')
-                    .text(message).linky().emoticons()
+                    .text(message)
                     .appendTo($logLine);
         }
 
@@ -631,16 +505,7 @@
 
         // Start up once the document is loaded.
         $(document).ready(main);
-		
 
-
-	function scrollSmoothToBottom (id) {
-	   $(scrollingElement).animate({
-		  scrollTop: document.body.scrollHeight
-	   }, 500);
-	}
-	scrollSmoothToBottom()
-	
     </script>
 
 </html>
