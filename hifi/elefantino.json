@@ -1,0 +1,40 @@
+{
+    "DataVersion": 0,
+    "Entities": [
+        {
+            "clientOnly": false,
+            "created": "2018-09-19T10:52:46Z",
+            "dimensions": {
+                "blue": 1.7531355619430542,
+                "green": 2.652064561843872,
+                "red": 3.841329336166382,
+                "x": 3.841329336166382,
+                "y": 2.652064561843872,
+                "z": 1.7531355619430542
+            },
+            "id": "{05962e54-e3fb-4d97-a0a2-3eba6b419830}",
+            "lastEdited": 1537355028927879,
+            "lastEditedBy": "{7bde7c58-ff32-40a1-a27d-24595cf3c449}",
+            "modelURL": "atp:/elefantino.fbx",
+            "name": "elefantino.fbx",
+            "owningAvatarID": "{00000000-0000-0000-0000-000000000000}",
+            "queryAACube": {
+                "scale": 4.986255168914795,
+                "x": -2.4931275844573975,
+                "y": -2.4931275844573975,
+                "z": -2.4931275844573975
+            },
+            "rotation": {
+                "w": 1,
+                "x": -1.52587890625e-05,
+                "y": -1.52587890625e-05,
+                "z": -1.52587890625e-05
+            },
+            "shapeType": "static-mesh",
+            "type": "Model",
+            "userData": "{\"grabbableKey\":{\"grabbable\":false}}"
+        }
+    ],
+    "Id": "{92de73e9-c694-4a5b-84a5-8dcc6b0ab8f6}",
+    "Version": 92
+}
