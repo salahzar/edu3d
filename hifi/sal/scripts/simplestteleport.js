@@ -12,7 +12,7 @@
             print("Error: "+e);
           }
       }
-    }
+    
 
     this.mousePressOnEntity = this.clickDownOnEntity;
 
