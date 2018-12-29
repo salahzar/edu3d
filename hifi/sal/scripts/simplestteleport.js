@@ -3,6 +3,7 @@
 // 2018 CC0, written by Salahzar Stenvaag
 (function () {
     
+  print ("Script loaded.")
     this.clickDownOnEntity = function (entityID, mouseEvent) {
       try {
             address = Entities.getEntityProperties(entityID, ["position", "userData"]);
