@@ -5,11 +5,14 @@
     
     this.clickDownOnEntity = function (entityID, mouseEvent) {
       try {
-            location = Entities.getEntityProperties(entityID, ["position", "userData"]);           
+            address = Entities.getEntityProperties(entityID, ["position", "userData"]);
+            print("Teleport verso "+address);
+            location = address;     
           } catch (e) { 
-            print ("Error: "+e);
+            print("Error: "+e);
           }
       }
+    }
 
     this.mousePressOnEntity = this.clickDownOnEntity;
 
