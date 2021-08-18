@@ -1,3 +1,4 @@
+print("C:\\Users\\claudio.pacchiega\\Downloads\\soundLoopEmitterClick.js");
 (function () {
 
     // position Vec3 (Vec3.ZERO)
